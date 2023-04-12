@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Innoloft.Cache.Redis\Innoloft.Cache.Redis.csproj" />
     <ProjectReference Include="..\Innoloft.Domain\Innoloft.Domain.csproj" />
     <ProjectReference Include="..\Innoloft.EntityFramework\Innoloft.EntityFramework.csproj" />
   </ItemGroup>

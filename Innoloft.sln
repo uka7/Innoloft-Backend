@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Innoloft.Shared", "Innoloft
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Innoloft.Tests", "Innoloft.Tests\Innoloft.Tests.csproj", "{65614CE8-E32E-485C-BC89-A4A0CCCA1AC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Innoloft.Cache.Redis", "Innoloft.Cache.Redis\Innoloft.Cache.Redis.csproj", "{9D83D8CF-08A7-498E-947B-ED1A687273E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{65614CE8-E32E-485C-BC89-A4A0CCCA1AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65614CE8-E32E-485C-BC89-A4A0CCCA1AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65614CE8-E32E-485C-BC89-A4A0CCCA1AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D83D8CF-08A7-498E-947B-ED1A687273E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D83D8CF-08A7-498E-947B-ED1A687273E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D83D8CF-08A7-498E-947B-ED1A687273E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D83D8CF-08A7-498E-947B-ED1A687273E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
