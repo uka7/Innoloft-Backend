@@ -7,6 +7,7 @@ using Innoloft.Domain.Repositories;
 using Innoloft.Domain.Users;
 using Innoloft.EntityFramework;
 using Innoloft.EntityFramework.Repositories;
+using Innoloft.Web.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -25,6 +26,8 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddControllers(options => { options.Filters.Add(typeof(StructuredResponseActionFilter)); });
+        
         // Add DbContext and configure connection string
         services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
@@ -78,6 +81,7 @@ public class Startup
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
+        app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
         // Use Swagger
         app.UseSwagger();
         app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
