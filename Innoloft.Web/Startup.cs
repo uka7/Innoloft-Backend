@@ -4,6 +4,7 @@ using Innoloft.Cache.Redis.Implementation;
 using Innoloft.Domain.Net;
 using Innoloft.Domain.Net.Implementation;
 using Innoloft.Domain.Repositories;
+using Innoloft.Domain.Users;
 using Innoloft.EntityFramework;
 using Innoloft.EntityFramework.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -63,6 +64,7 @@ public class Startup
         
         services.AddScoped<IEventRepository, EventRepository>();
         services.AddScoped<IEventParticipantRepository, EventParticipantRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
         
         // Add Swagger
         services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "My API", Version = "v1"}); });
