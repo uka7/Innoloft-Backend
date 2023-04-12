@@ -1,5 +1,7 @@
 using System.Text;
+using Innoloft.Domain.Repositories;
 using Innoloft.EntityFramework;
+using Innoloft.EntityFramework.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -52,7 +54,9 @@ public class Startup
         
         services.AddHttpClient();
 
-
+        services.AddScoped<IEventRepository, EventRepository>();
+        services.AddScoped<IEventParticipantRepository, EventParticipantRepository>();
+        
         // Add Swagger
         services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "My API", Version = "v1"}); });
     }
