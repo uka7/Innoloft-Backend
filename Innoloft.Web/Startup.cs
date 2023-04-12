@@ -1,6 +1,8 @@
 using System.Text;
 using Innoloft.Cache.Redis;
 using Innoloft.Cache.Redis.Implementation;
+using Innoloft.Domain.Net;
+using Innoloft.Domain.Net.Implementation;
 using Innoloft.Domain.Repositories;
 using Innoloft.EntityFramework;
 using Innoloft.EntityFramework.Repositories;
@@ -57,6 +59,7 @@ public class Startup
         services.AddHttpClient();
 
         services.AddScoped<ICacheRepository, CacheRepository>();
+        services.AddScoped<IJsonPlaceholderClient, JsonPlaceholderClient>();
         
         services.AddScoped<IEventRepository, EventRepository>();
         services.AddScoped<IEventParticipantRepository, EventParticipantRepository>();
