@@ -118,6 +118,7 @@ public class EventController : ControllerBase
 
     private int GetUserIdFromToken()
     {
+        if (Environment.GetEnvironmentVariable("TEST_ENV") == "true") return 1; // to use during testing
         return int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
     }
 }
