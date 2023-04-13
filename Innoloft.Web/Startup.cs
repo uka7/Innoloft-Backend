@@ -39,6 +39,8 @@ public class Startup
             options.InstanceName = Configuration.GetSection("Redis:InstanceName").Value;
         });
 
+        services.AddAutoMapper(typeof(Startup));
+        
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -77,7 +79,7 @@ public class Startup
     {
         if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection();
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
