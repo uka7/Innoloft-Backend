@@ -63,4 +63,18 @@ public class EventParticipantRepository : IEventParticipantRepository
             await _context.SaveChangesAsync();
         }
     }
+
+    public async Task<List<EventParticipant>> GetReceivedInvitations(int userId)
+    {
+        return await _context.EventParticipants.AsQueryable()
+            .Include(e => e.Event)
+            .Where(e => e.UserId == userId).ToListAsync();
+    }
+    
+    public async Task<List<EventParticipant>> GetSentInvitations(int userId)
+    {
+        return await _context.EventParticipants.AsQueryable()
+            .Include(e => e.Event)
+            .Where(e => e.Event != null && e.Event.CreatorUserId == userId).ToListAsync();
+    }
 }

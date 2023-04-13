@@ -27,6 +27,18 @@ public class EventParticipantController : ControllerBase
         _userRepository = userRepository;
     }
 
+    [HttpGet("getSentInvitations")]
+    public async Task<IActionResult> GetSentInvitations()
+    {
+        return Ok(await _eventParticipantRepository.GetSentInvitations(GetUserIdFromToken()));
+    }
+    
+    [HttpGet("getReceivedInvitations")]
+    public async Task<IActionResult> GetReceivedInvitations()
+    {
+        return Ok(await _eventParticipantRepository.GetReceivedInvitations(GetUserIdFromToken()));
+    }
+    
     [HttpPost("{eventId}/invite/{userId}")]
     public async Task<IActionResult> InviteUser(int eventId, int userId)
     {

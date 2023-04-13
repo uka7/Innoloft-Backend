@@ -12,5 +12,6 @@ public interface IEventParticipantRepository
     Task DeleteAsync(int id);
     Task<EventParticipant?> GetParticipantByEventIdAsync(int eventId, int userId);
     Task<IEnumerable<EventParticipant>> GetEventParticipantsAsync(int eventId, PaginationParameters paginationParameters);
-
+    Task<List<EventParticipant>> GetReceivedInvitations(int userId);
+    Task<List<EventParticipant>> GetSentInvitations(int userId);
 }
