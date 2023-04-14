@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -25,6 +26,10 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login(int id)
     {
+        if (id < 1 || id > 10)
+        {
+            return BadRequest("Invalid user id. Accepted ids are between 1 and 10.");
+        }
         var user = await _userRepository.GetUserAsync(id);
 
         // Generate JWT token
