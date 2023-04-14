@@ -77,4 +77,9 @@ public class EventParticipantRepository : IEventParticipantRepository
             .Include(e => e.Event)
             .Where(e => e.Event != null && e.Event.CreatorUserId == userId).ToListAsync();
     }
+    
+    public async Task<bool> DoesEventHaveParticipants(int eventId)
+    {
+        return await _context.EventParticipants.AnyAsync();
+    }
 }

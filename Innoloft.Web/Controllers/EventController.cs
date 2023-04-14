@@ -112,6 +112,10 @@ public class EventController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
+        if (await _eventParticipantRepository.DoesEventHaveParticipants(id))
+        {
+            return BadRequest("Event can't be deleted because it has participants in it");
+        }
         await _eventRepository.DeleteAsync(id);
         return NoContent();
     }

@@ -14,4 +14,5 @@ public interface IEventParticipantRepository
     Task<IEnumerable<EventParticipant>> GetEventParticipantsAsync(int eventId, PaginationParameters paginationParameters);
     Task<List<EventParticipant>> GetReceivedInvitations(int userId);
     Task<List<EventParticipant>> GetSentInvitations(int userId);
+    Task<bool> DoesEventHaveParticipants(int eventId);
 }
