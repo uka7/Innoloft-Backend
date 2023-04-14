@@ -19,6 +19,27 @@ This is a .NET Core application project structured in a clean and organized way,
 
 This project structure is modular, scalable, and testable. It follows the best coding practices and encourages code reusability.
 
+## File Structure
+
+The project file structure is organized as follows:
+
+```plaintext
+|-- Innoloft.Cache.Redis
+|-- Innoloft.Domain
+|   |-- Entities
+|   |-- Extension Methods
+|   |-- Repositories
+|-- Innoloft.EntityFramework
+|-- Innoloft.Shared
+|   |-- DTOs
+|   |-- Enums
+|-- Innoloft.Tests
+|-- Innoloft.Web
+|   |-- Controllers
+|   |-- Helpers
+|   |   |-- Exception Handling Middleware
+|   |   |-- Response Action Filter
+```
 
 ### Features and Technologies
 
@@ -50,6 +71,9 @@ The application utilizes JSONPlaceholder as a source of user data, and it is imp
 3. Upon successful retrieval of user data, a Bearer token is generated for the user.
 4. Some user data like user Id is saved within the token to be utilized later in the application.
 
+Below is a simple visual representation of the login flow for a better understanding:
+
+![User Login Flow](./Images/UserLoginFlow.jpg)
 
 ### API Endpoints
 
@@ -80,6 +104,16 @@ The application utilizes JSONPlaceholder as a source of user data, and it is imp
 
 ## Setup and Running
 
+
+Clone the repository
+```sh
+git clone https://github.com/uka7/Innoloft-Backend.git
+```
+
+Navigate to the project directory
+```sh
+cd Innoloft-Backend
+```
 ### Local Setup
 
 1. Run MariaDB and Redis using Docker:
@@ -94,7 +128,7 @@ docker run -d --name my-redis -p 6379:6379 -d redis
 
 2. Update the connection string in `appsettings.json` and Redis connection details based on the above information.
 
-3. Run the web project.
+3. Run the `Innoloft.Web` project.
 
 ### Docker Setup
 
