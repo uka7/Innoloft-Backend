@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:80"
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: mariadb:10.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=InnoloftDb
+    volumes:
+      - db-data:/var/lib/mysql
+
+  redis:
+    image: "redis:6.2-alpine"
+
+volumes:
+  db-data:
